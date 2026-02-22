@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rento - Find Your Perfect Place</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <!-- Navigation -->
+<nav class="navbar">
+    <div class="container-fluid">
+        <a class="logo" href="#">
+            <img src="/Final Project/rento.png" alt="Rento Logo" class="logo-image">
+        </a>
+        <div class="auth-buttons">
+            <button class="btn btn-login"><a href="/Final Project/login/login.html" style=" text-decoration: none; color: aliceblue;">Login</a></button>
+            <button class="btn btn-register"><a href="/Final Project/signup/sign.html" style="text-decoration: none; color: aliceblue;">Register</a></button>
+        </div>
+    </div>
+</nav>
+
+    <!-- Properties Section -->
+    <div class="properties-section">
+        <div class="row">
+            <!-- Property Card 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="property-card">
+                    <div class="property-image-container">
+                        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=500" alt="Property" class="property-image">
+                        <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
+                    </div>
+                    <div class="property-details">
+                        <div class="rating">
+                            ★★★★☆ <span class="rating-text">3.5/5</span>
+                        </div>
+                        <div class="location-info">
+                            <p>Location: Alexandria</p>
+                            <p>Region: New Borg El-Arab</p>
+                        </div>
+                        <div class="price">L.E 8000 per/month</div>
+                        <div class="card-actions">
+                            <span class="availability-badge badge-unavailable">Unavailable</span>
+                            <button class="btn-details"><a href="/Final Project/login/login.html" style=" text-decoration: none; color: aliceblue;">More details</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Card 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="property-card">
+                    <div class="property-image-container">
+                        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=500" alt="Property" class="property-image">
+                        <button class="favorite-btn active" onclick="toggleFavorite(this)">♥</button>
+                    </div>
+                    <div class="property-details">
+                        <div class="rating">
+                            ★★★★☆ <span class="rating-text">4/5</span>
+                        </div>
+                        <div class="location-info">
+                            <p>Location: Cairo</p>
+                            <p>Region: Heliopolis</p>
+                        </div>
+                        <div class="price">L.E 12000 per/month</div>
+                        <div class="card-actions">
+                            <span class="availability-badge badge-available">Available</span>
+                            <button class="btn-details"><a href="/Final Project/login/login.html" style=" text-decoration: none; color: aliceblue;">More details</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Card 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="property-card">
+                    <div class="property-image-container">
+                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500" alt="Property" class="property-image">
+                        <button class="favorite-btn active" onclick="toggleFavorite(this)">♥</button>
+                    </div>
+                    <div class="property-details">
+                        <div class="rating">
+                            ★★★★☆ <span class="rating-text">4/5</span>
+                        </div>
+                        <div class="location-info">
+                            <p>Location: Qalyubia</p>
+                            <p>Region: Banha</p>
+                        </div>
+                        <div class="price">L.E 10000 per/month</div>
+                        <div class="card-actions">
+                            <span class="availability-badge badge-available">Available</span>
+                            <button class="btn-details"><a href="/Final Project/login/login.html" style=" text-decoration: none; color: aliceblue;">More details</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Load More -->
+        <div class="load-more">
+            <span class="load-more-text" onclick="loadMoreProperties()">Load More Places...</span>
+        </div>
+    </div>
+
+    <!-- Choose Place Button -->
+    <div class="choose-place-section">
+        <button class="btn-choose-place"><a href="/Final Project/login/login.html" style="text-decoration: none; color: white;">Choose your Place</a></button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-email">rento@gmail.com</div>
+        <div class="footer-copyright">© 2025 rento. All rights reserved.</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="home.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "rento-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Rento apartment rental platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "jest --coverage --forceExit --detectOpenHandles"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "sqlite3": "^5.1.7",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  },
+  "keywords": [
+    "rental",
+    "apartments",
+    "egypt"
+  ],
+  "author": "Rento Team",
+  "license": "ISC"
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rento - Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="sign.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="signup-box">
+            <!-- Logo -->
+            <div class="logo-section">
+                <img src="/Final Project/rento.png" alt="Rento Logo" class="logo">
+            </div>
+
+            <!-- Title -->
+            <h1 class="signup-title">Create New Account</h1>
+
+            <!-- Sign Up Form -->
+            <form id="signupForm" onsubmit="handleSignUp(event)">
+                <!-- Name Field -->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Enter your name*" 
+                        required
+                    >
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter your email*" 
+                        required
+                    >
+                </div>
+
+                <!-- Phone Field -->
+                <div class="form-group">
+                    <label for="phone">Phone no.</label>
+                    <input 
+                        type="tel" 
+                        id="phone" 
+                        name="phone" 
+                        placeholder="Enter your phone*" 
+                        required
+                    >
+                </div>
+
+                <!-- Create Password Field -->
+                <div class="form-group">
+                    <label for="password">Create password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Create a password*" 
+                        required
+                    >
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm password</label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        placeholder="Enter the same password*" 
+                        required
+                    >
+                </div>
+
+                <!-- Sign Up Button -->
+                <button type="submit" class="btn-signup">Sign Up</button>
+
+                <!-- Already have account link -->
+                <div class="login-link">
+                    <a href="/Final Project/login/login.html">Already have an account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="sign.js"></script>
+</body>
+</html>

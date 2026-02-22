@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rento - Book Property</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+    <!-- Navigation -->
+<nav class="navbar">
+    <div class="container-fluid">
+        <a href="/Final Project/map/map.html" class="logo">
+                <img src="/Final Project/rento.png" alt="Rento Logo" class="logo-image">
+            </a>
+            <div class="nav-icons">
+                <a href="/Final Project/map/map.html" class="nav-icon" title="Home">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="#" class="nav-icon" title="Favorites">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </a>
+                <a href="/Final Project/about/about.html" class="btn-nav" title="About Us" style="text-decoration: none;">About Us</a>
+                <a href="/Final Project/Home_page/home.html" class="nav-icon" title="Logout">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                </a>
+            </div>
+    </div>
+</nav>
+    <!-- Booking Form -->
+    <div class="booking-container">
+        <form id="bookingForm" onsubmit="handleBooking(event)">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    placeholder="Enter your name*" 
+                    required
+                >
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    name="email" 
+                    placeholder="Enter your email*" 
+                    required
+                >
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+                <label for="phone">Phone no</label>
+                <input 
+                    type="tel" 
+                    id="phone" 
+                    name="phone" 
+                    placeholder="Enter your number*" 
+                    required
+                >
+            </div>
+
+            <!-- Start Date -->
+            <div class="form-group">
+                <label for="startDate">Start date of rent</label>
+                <input 
+                    type="date" 
+                    id="startDate" 
+                    name="startDate" 
+                    placeholder="select start date*" 
+                    required
+                >
+            </div>
+
+            <!-- End Date -->
+            <div class="form-group">
+                <label for="endDate">End date of rent</label>
+                <input 
+                    type="date" 
+                    id="endDate" 
+                    name="endDate" 
+                    placeholder="select end date*" 
+                    required
+                >
+            </div>
+
+            <!-- Book Button -->
+            <button type="submit" class="btn-book">Book</button>
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-email">rento@gmail.com</div>
+        <div class="footer-copyright">© 2025 rento. All rights reserved.</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="booking.js"></script>
+</body>
+</html>

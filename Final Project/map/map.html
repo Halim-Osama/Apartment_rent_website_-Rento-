@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rento - Search Properties</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a href="/Final Project/map/map.html" class="logo">
+                <img src="/Final Project/rento.png" alt="Rento Logo" class="logo-image">
+            </a>
+            <div class="nav-icons">
+                <a href="/Final Project/map/map.html" class="nav-icon" title="Home">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                </a>
+                <a href="#" class="nav-icon" title="Favorites">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
+                </a>
+                <button class="btn-nav" onclick="toggleView()">
+                    <span id="viewToggleText">Map View</span>
+                </button>
+                <a href="/Final Project/Home_page/home.html" onclick="logout(); return false;" class="nav-icon" title="Logout">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Filters Sidebar -->
+        <div class="filters-sidebar" id="filtersSidebar">
+            <div class="filters-header">
+                <h3>Filters</h3>
+                <button class="btn-reset" onclick="resetFilters()">Reset All</button>
+            </div>
+
+            <form id="filtersForm">
+                <!-- Location -->
+                <div class="filter-group">
+                    <label>City</label>
+                    <select id="filterCity" onchange="applyFilters()">
+                        <option value="">All Cities</option>
+                        <option value="alexandria">Alexandria</option>
+                        <option value="cairo">Cairo</option>
+                        <option value="giza">Giza</option>
+                        <option value="qalyubia">Qalyubia</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Region</label>
+                    <select id="filterRegion" onchange="applyFilters()">
+                        <option value="">All Regions</option>
+                        <option value="heliopolis">Heliopolis</option>
+                        <option value="new-borg">New Borg El-Arab</option>
+                        <option value="banha">Banha</option>
+                    </select>
+                </div>
+
+                <!-- Price Range -->
+                <div class="filter-group">
+                    <label>Price Range (L.E per month)</label>
+                    <div class="price-inputs">
+                        <input type="number" id="minPrice" placeholder="Min" onchange="applyFilters()">
+                        <span>-</span>
+                        <input type="number" id="maxPrice" placeholder="Max" onchange="applyFilters()">
+                    </div>
+                </div>
+
+                <!-- Bedrooms -->
+                <div class="filter-group">
+                    <label>Bedrooms</label>
+                    <select id="filterBedrooms" onchange="applyFilters()">
+                        <option value="">Any</option>
+                        <option value="1">1+</option>
+                        <option value="2">2+</option>
+                        <option value="3">3+</option>
+                        <option value="4">4+</option>
+                    </select>
+                </div>
+
+                <!-- Bathrooms -->
+                <div class="filter-group">
+                    <label>Bathrooms</label>
+                    <select id="filterBathrooms" onchange="applyFilters()">
+                        <option value="">Any</option>
+                        <option value="1">1+</option>
+                        <option value="2">2+</option>
+                        <option value="3">3+</option>
+                    </select>
+                </div>
+
+                <!-- Availability -->
+                <div class="filter-group">
+                    <label>Availability</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="filterAvailable" onchange="applyFilters()">
+                            <span>Available Only</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Sort By -->
+                <div class="filter-group">
+                    <label>Sort By</label>
+                    <select id="sortBy" onchange="applyFilters()">
+                        <option value="newest">Newest First</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- List View -->
+            <div class="list-view" id="listView">
+                <div class="results-header">
+                    <h2>Available Properties (<span id="resultsCount">6</span>)</h2>
+                </div>
+
+                <div class="properties-grid" id="propertiesGrid">
+                    <!-- Properties will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <!-- Map View -->
+            <div class="map-view" id="mapView" style="display: none;">
+                <div id="map"></div>
+                
+                <!-- Map Property Card (shows when clicking marker) -->
+                <div class="map-property-card" id="mapPropertyCard" style="display: none;">
+                    <button class="close-card" onclick="closeMapCard()">×</button>
+                    <img src="" alt="Property" class="card-image" id="mapCardImage">
+                    <div class="card-details">
+                        <div class="card-rating">
+                            <span class="stars" id="mapCardRating"></span>
+                            <span class="rating-value" id="mapCardRatingValue"></span>
+                        </div>
+                        <p class="card-location" id="mapCardLocation"></p>
+                        <p class="card-price" id="mapCardPrice"></p>
+                        <button class="btn-card-details" id="mapCardDetailsBtn">View Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-email">rento@gmail.com</div>
+        <div class="footer-copyright">© 2025 rento. All rights reserved.</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="map.js"></script>
+</body>
+</html>

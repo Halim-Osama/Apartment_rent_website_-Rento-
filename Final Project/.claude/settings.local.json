@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npm install)",
+      "Bash(cat:*)",
+      "Bash(lsof:*)",
+      "Bash(curl:*)",
+      "Bash(npm test:*)"
+    ]
+  }
+}
